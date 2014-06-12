@@ -25,6 +25,7 @@ INSERT INTO dbo.MyEmployees VALUES
 
 
 WITH DirectReports (ManagerID, EmployeeID, Title, DeptID, Level)
+AS
 (-- Anchor member definition
 -- Starts from the employees at the highest level.
 	SELECT	e.ManagerID, e.EmployeeID, e.Title, e.Deptid,
@@ -42,4 +43,3 @@ WITH DirectReports (ManagerID, EmployeeID, Title, DeptID, Level)
 -- Statement that executes the CTE
 SELECT ManagerID, EmployeeID, Title, Level
 FROM DirectReports
--- The rows in the resulting table would correspond to the branches of the tree that represent employee levels.
